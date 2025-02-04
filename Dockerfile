@@ -10,7 +10,7 @@ RUN apt-get update && \
 RUN add-apt-repository ppa:deadsnakes/ppa -y
 
 RUN apt-get update && \
-    apt-get TZ=Etc/UTC install --no-install-recommends -y \
+    apt-get install --no-install-recommends -y \
         build-essential \
         curl \
         ffmpeg \
