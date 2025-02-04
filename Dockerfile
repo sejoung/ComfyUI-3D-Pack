@@ -3,7 +3,7 @@ ARG CUDA_VERSION=12.4.0-devel
 FROM --platform=amd64 docker.io/nvidia/cuda:${CUDA_VERSION}-ubuntu22.04
 
 RUN apt-get update && \
-    apt-get install software-properties-common
+    apt-get install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa -y
 
 RUN apt-get update && \
