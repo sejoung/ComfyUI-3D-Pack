@@ -30,11 +30,11 @@ RUN apt-get update && \
         python3.11-venv \
         wget \
         && \
-    curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11 && \
+    curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12 && \
     rm -rf /var/lib/apt/lists/*
 
-RUN ln -s /usr/bin/python3.11 /usr/bin/python & \
-    ln -s /usr/bin/python3.11 /usr/bin/python3 & \
+RUN ln -s /usr/bin/python3.12 /usr/bin/python & \
+    ln -s /usr/bin/python3.12 /usr/bin/python3 & \
     ln -s /usr/bin/pip3.11 /usr/bin/pip
 
 RUN python -m pip install --upgrade pip
