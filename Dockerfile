@@ -2,6 +2,8 @@ ARG CUDA_VERSION=12.4.0-devel
 
 FROM --platform=amd64 docker.io/nvidia/cuda:${CUDA_VERSION}-ubuntu22.04
 
+RUN add-apt-repository ppa:deadsnakes/ppa -y
+
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
         build-essential \
