@@ -25,9 +25,9 @@ RUN apt-get update && \
         libxext6 \
         libxrender1 \
         ninja-build \
-        python3.11 \
-        python3.11-dev \
-        python3.11-venv \
+        python3.12 \
+        python3.12-dev \
+        python3.12-venv \
         wget \
         && \
     curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12 && \
