@@ -4,8 +4,14 @@ services:
       context: .
       dockerfile: Dockerfile
     platform: linux/amd64
-    runtime: nvidia
     image: comfy3d
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [ '0' ]
+              capabilities: [ compute, utility ]
     ports:
       - "8188:8188"
     environment:
