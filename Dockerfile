@@ -1,7 +1,8 @@
 ARG CUDA_VERSION=12.4.0-devel
+ARG DEBIAN_FRONTEND=noninteractive
 
 FROM --platform=amd64 docker.io/nvidia/cuda:${CUDA_VERSION}-ubuntu22.04
-ARG DEBIAN_FRONTEND=noninteractive
+
 ENV TZ=Etc/UTC
 
 RUN apt-get update && \
