@@ -18,6 +18,7 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
       - COMFYUI_PATH=/app
+      - NVIDIA_DISABLE_REQUIRES=true
     volumes:
       # - ./output:/app/output
       - ./models/diffusion_pytorch_model.safetensors:/app/models/controlnet/control_unique3d_sd15_tile.safetensors
