@@ -35,7 +35,7 @@ RUN apt-get update && \
 
 RUN ln -s /usr/bin/python3.12 /usr/bin/python & \
     ln -s /usr/bin/python3.12 /usr/bin/python3 & \
-    ln -s /usr/bin/pip3.11 /usr/bin/pip
+    ln -s /usr/bin/pip3.12 /usr/bin/pip
 
 RUN python -m pip install --upgrade pip
 
