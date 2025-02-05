@@ -1,4 +1,4 @@
-ARG CUDA_VERSION=12.8.0-devel
+ARG CUDA_VERSION=12.4.1-devel
 
 FROM --platform=amd64 docker.io/nvidia/cuda:${CUDA_VERSION}-ubuntu22.04
 
@@ -41,8 +41,6 @@ RUN ln -s /usr/bin/python3.12 /usr/bin/python & \
     ln -s /usr/bin/python3.12 /usr/bin/python3 & \
     ln -s /usr/bin/pip3.12 /usr/bin/pip
 
-RUN python -m pip install --upgrade pip
-
 RUN mkdir /app
 
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -70,6 +68,8 @@ ENV PATH="/app/venv/bin:$PATH" \
     VIRTUAL_ENV="/app/venv" \
     PYTHONPATH="/app/venv/lib/python3.11/site-packages" \
     PYTHONUSERBASE="/app/venv"
+
+RUN python -m pip install --upgrade pip
 
 # Install the requirements
 RUN pip install --no-cache -r requirements.txt
