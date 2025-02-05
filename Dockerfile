@@ -75,8 +75,8 @@ ENV PATH="/app/venv/bin:$PATH" \
 RUN pip install --no-cache -r requirements.txt
 
 WORKDIR /app/custom_nodes/ComfyUI-3D-Pack/
-COPY --chown=user:user requirements.txt ./
-COPY --chown=user:user install.py ./
+COPY requirements.txt ./
+COPY install.py ./
 RUN pip install --no-cache -r requirements.txt \
     # post requirements installation require gpu, setup
     # `nvidia-container-runtime`, for docker, see
