@@ -20,7 +20,7 @@ services:
       - COMFYUI_PATH=/app
       - NVIDIA_DISABLE_REQUIRES=true
     volumes:
-      # - ./output:/app/output
+      - ./output:/app/output
       - ./models/diffusion_pytorch_model.safetensors:/app/models/controlnet/control_unique3d_sd15_tile.safetensors
       - ./models/ip-adapter_sd15.safetensors:/app/models/ipadapter/ip-adapter_sd15.safetensors
       - ./models/RealESRGAN_x4plus.pth:/app/models/upscale_models/RealESRGAN_x4plus.pth

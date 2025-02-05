@@ -3,14 +3,12 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 FROM --platform=amd64 docker.io/nvidia/cuda:${CUDA_VERSION}-ubuntu22.04
 
-ENV TZ=Etc/UTC
-
 RUN apt-get update && \
     apt-get install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa -y
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt-get install --no-install-recommends -y \
+        TZ="Asia/Seoul" apt-get install --no-install-recommends -y \
         build-essential \
         curl \
         ffmpeg \
@@ -46,9 +44,7 @@ RUN ln -s /usr/bin/python3.12 /usr/bin/python & \
 
 RUN python -m pip install --upgrade pip
 
-RUN adduser --uid 1001 -q user && \
-    mkdir /app && chown user /app
-USER user
+RUN mkdir /app
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -66,9 +62,7 @@ ENV PYOPENGL_PLATFORM egl
 WORKDIR /app
 
 # Clone ComfyUI repository
-RUN git clone "https://github.com/comfyanonymous/ComfyUI.git" ./ && \
-git reset --hard 29c2e26724d4982a3e33114eb9064f1a11f4f4ed
-
+RUN git clone "https://github.com/comfyanonymous/ComfyUI.git" ./
 # Setup a virtual environment
 RUN python -m venv venv
 
@@ -91,7 +85,7 @@ RUN pip install --no-cache -r requirements.txt \
     # those seem to be missed
     ninja rembg[gpu] open_clip_torch
 
-COPY --chown=user:user ./ ./
+COPY ./ ./
 RUN python install.py
 
 # Install Custom Nodes
