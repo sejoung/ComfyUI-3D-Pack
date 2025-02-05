@@ -1,5 +1,4 @@
-ARG CUDA_VERSION=12.4.0-devel
-ARG DEBIAN_FRONTEND=noninteractive
+ARG CUDA_VERSION=12.4.1-devel
 
 FROM --platform=amd64 docker.io/nvidia/cuda:${CUDA_VERSION}-ubuntu22.04
 
@@ -8,7 +7,7 @@ RUN apt-get update && \
 RUN add-apt-repository ppa:deadsnakes/ppa -y
 
 RUN apt-get update && \
-        TZ="Asia/Seoul" apt-get install --no-install-recommends -y \
+        DEBIAN_FRONTEND="noninteractive" TZ="Asia/Seoul" apt-get install --no-install-recommends -y \
         build-essential \
         curl \
         ffmpeg \
