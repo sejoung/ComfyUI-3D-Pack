@@ -1,4 +1,4 @@
-ARG CUDA_VERSION=12.4.1-devel
+ARG CUDA_VERSION=12.8.0-devel
 
 FROM --platform=amd64 docker.io/nvidia/cuda:${CUDA_VERSION}-ubuntu22.04
 
@@ -86,6 +86,7 @@ RUN pip install --no-cache -r requirements.txt \
 
 COPY ./ ./
 RUN python install.py
+
 
 # Install Custom Nodes
 WORKDIR /app/custom_nodes/
