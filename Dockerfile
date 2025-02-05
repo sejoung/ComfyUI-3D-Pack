@@ -32,8 +32,6 @@ RUN apt-get update && \
         libxext6 \
         libxrender1 \
         ninja-build \
-        gcc-13 \
-        g++-13 \
         python3.12 \
         python3.12-dev \
         python3.12-venv \
@@ -41,9 +39,6 @@ RUN apt-get update && \
         && \
     curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12 && \
     rm -rf /var/lib/apt/lists/*
-
-RUN apt upgrade && \
-    apt dist-upgrade
 
 RUN ln -s /usr/bin/python3.12 /usr/bin/python & \
     ln -s /usr/bin/python3.12 /usr/bin/python3 & \

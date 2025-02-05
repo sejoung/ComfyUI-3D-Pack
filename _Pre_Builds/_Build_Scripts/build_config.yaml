@@ -29,6 +29,6 @@ remote_packages:
     url: "https://download.pytorch.org/whl/${cuda_version}"
 
   # At the time of writing, torch-scatter is not available for PyTorch 2.5.0
-  #torch-scatter:
-  #  url_option: "--find-links"
-  #  url: "https://data.pyg.org/whl/torch-${remote_packages.torch.version}+${cuda_version}.html"
+  torch-scatter:
+    url_option: "--find-links"
+    url: "https://data.pyg.org/whl/torch-${remote_packages.torch.version}+${cuda_version}.html"
