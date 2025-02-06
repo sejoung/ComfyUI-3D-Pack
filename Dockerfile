@@ -8,7 +8,6 @@ RUN add-apt-repository ppa:deadsnakes/ppa -y
 
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y
 
-
 RUN apt-get update && \
         DEBIAN_FRONTEND="noninteractive" TZ="Asia/Seoul" apt-get install --no-install-recommends -y \
         build-essential \
@@ -39,6 +38,8 @@ RUN apt-get update && \
         && \
     curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12 && \
     rm -rf /var/lib/apt/lists/*
+
+RUN apt-get install --only-upgrade libstdc++6
 
 RUN ln -s /usr/bin/python3.12 /usr/bin/python & \
     ln -s /usr/bin/python3.12 /usr/bin/python3 & \
