@@ -39,7 +39,6 @@ RUN apt-get update && \
     curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12 && \
     rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install --only-upgrade libstdc++6
 
 RUN ln -s /usr/bin/python3.12 /usr/bin/python & \
     ln -s /usr/bin/python3.12 /usr/bin/python3 & \
