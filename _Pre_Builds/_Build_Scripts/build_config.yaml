@@ -28,6 +28,6 @@ remote_packages:
     version: "0.0.28.post3"
     url: "https://download.pytorch.org/whl/${cuda_version}"
 
-  torch-scatter:
-    version: "2.1.2"
-    url: "https://pytorch-geometric.com/whl/torch-${remote_packages.torch.version}+${cuda_version}.html"
+  #torch-scatter:
+   # version: "2.1.2"
+    #url: "https://pytorch-geometric.com/whl/torch-${remote_packages.torch.version}+${cuda_version}.html"
